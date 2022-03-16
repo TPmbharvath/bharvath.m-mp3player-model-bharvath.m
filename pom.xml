@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>com.travelport.odbootcamp</groupId>
+    <artifactId>odbootcamp-parent</artifactId>
+    <version>5.2.0.0-SNAPSHOT</version>
+  </parent>
+  
+  <groupId>com.travelport.odbootcamp</groupId>
+  <artifactId>mp3player-model-bharvath.m</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  
+  <name>OTM Model Project</name>
+  <packaging>jar</packaging>
+  
+    <properties>
+        <otm.schema.compiler.version>4.0.beta27</otm.schema.compiler.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+	    <dependency>
+		    <groupId>com.travelport.odt.restfw.generated.core</groupId>
+			<artifactId>Generated-core</artifactId>
+		</dependency>
+	    <dependency>
+			<groupId>com.travelport.odt.restfw</groupId>
+			<artifactId>rest-framework-provider</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+			</exclusions>										
+		</dependency>
+		<dependency>
+			<groupId>com.travelport.otm</groupId>
+			<artifactId>otm-core</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		
+		<plugins>
+<!-- OTM -->
+ 
+			<plugin>
+				<groupId>org.opentravel.otm</groupId>
+				<artifactId>ota2-repository-plugin</artifactId>
+				<version>${otm.schema.compiler.version}</version>
+				<configuration>
+				    <!-- TODO change MP3_Demo.otp to your model project file -->
+					<otmProject>${basedir}/src/main/resources/MP3-Demo_odbc101031422.otp</otmProject>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.travelport.odt.restfw.generated.plugin</groupId>
+				<artifactId>GeneratorPlugin</artifactId>
+			    <version>${rest-framework.version}</version>
+				<executions>
+					<execution>
+						<id>rest-compile</id>
+						<goals>
+							<goal>rest-compile</goal>
+						</goals>
+						<configuration>
+							<!-- TODO change MP3_Demo.otp to your model project file -->
+							<libraryFile>src/main/resources/MP3-Demo_odbc101031422.otp</libraryFile>
+							<outputFolder>${project.build.directory}/generated-sources/schemas</outputFolder>
+							<compileSchemas>true</compileSchemas>
+							<compileServices>true</compileServices>
+							<compileSwagger>true</compileSwagger>
+							<compileJsonSchemas>true</compileJsonSchemas>
+							<generateJavaClasses>true</generateJavaClasses>
+							<generateBuilders>false</generateBuilders>
+							<generateModelDoc>false</generateModelDoc>
+							<generateExamples>true</generateExamples>
+							<javaOutputFolder>${project.build.directory}/generated-sources/otm</javaOutputFolder>
+							<debug>true</debug>
+							<bindingStyle>TVP</bindingStyle>
+							<!-- TODO change systemId to use your name rather than studentX.  e.g. ODBC101jdsmith -->
+							<systemId>BHARVATH.M</systemId>
+							<isAsync>false</isAsync>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>com.travelport.otm</groupId>
+						<artifactId>schema-compiler-ext-tvp</artifactId>
+						<version>${otm.schema.compiler.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+	
+<!-- TODO uncomment when release builds are needed, and change the git repository location to your repository
+  <scm>
+    <connection>scm:git:https://gitbucket.tvlport.com/git/studentX/mp3player-model-bharvath.m.git</connection>
+    <developerConnection>scm:git:https://gitbucket.tvlport.com/git/studentX/mp3player-model-bharvath.m.git</developerConnection>
+  </scm>
+-->  
+
+</project>

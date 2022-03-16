@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<otp:Project xmlns="http://www.w3.org/2001/XMLSchema" xmlns:otp="http://www.OpenTravel.org/ns/OTA2/Project_v01_00">
+    <otp:projectId>http://training.travelport.com/od_bootcamp/tp/mp3/odbc101031422</otp:projectId>
+    <otp:name>MP3-Demo_odbc101031422</otp:name>
+    <otp:description></otp:description>
+    <otp:ManagedProjectItem defaultItem="true">
+        <otp:Repository>travelport-repository</otp:Repository>
+        <otp:BaseNamespace>http://www.travelport.com/schema/common</otp:BaseNamespace>
+        <otp:Filename>common_2_0_0.otm</otp:Filename>
+        <otp:Version>2.0.0</otp:Version>
+    </otp:ManagedProjectItem>
+    <otp:ManagedProjectItem>
+        <otp:Repository>travelport-training-repository</otp:Repository>
+        <otp:BaseNamespace>http://training.travelport.com/od_bootcamp/tp/mp3/odbc101031422</otp:BaseNamespace>
+        <otp:Filename>MP3-Demo_odbc101031422_1_0_0.otm</otp:Filename>
+        <otp:Version>1.0.0</otp:Version>
+    </otp:ManagedProjectItem>
+    <otp:RepositoryReferences>
+        <otp:RepositoryRef repositoryId="travelport-training-repository">http://otm-training.dv.tvlport.com</otp:RepositoryRef>
+        <otp:RepositoryRef repositoryId="travelport-repository">http://otm-repo.prod.tvlport.com</otp:RepositoryRef>
+    </otp:RepositoryReferences>
+</otp:Project>
